@@ -6,7 +6,7 @@ module.exports = function(backend) {
   var config = {};
 
   config.list = function(app, user, cb) {
-    backend.acl.isAllowed(user, app, 'read-config', function(err, result) {
+    backend.acl.isAllowed(user, app, 'config::read', function(err, result) {
       if(err) return err;
       if(!result) return cb(new E.Forbidden("You do not have permission to view '"+app+"'"));
 
@@ -15,7 +15,7 @@ module.exports = function(backend) {
   };
 
   config.add = function(app, params, user, cb) {
-    backend.acl.isAllowed(user, app, 'write-config', function(err, result) {
+    backend.acl.isAllowed(user, app, 'config::write', function(err, result) {
       if(err) return err;
       if(!result) return cb(new E.Forbidden("You do not have permission to change '"+app+"'"));
 
@@ -24,7 +24,7 @@ module.exports = function(backend) {
   };
 
   config.remove = function(app, key, user, cb) {
-    backend.acl.isAllowed(user, app, 'write-config', function(err, result) {
+    backend.acl.isAllowed(user, app, 'config::write', function(err, result) {
       if(err) return err;
       if(!result) return cb(new E.Forbidden("You do not have permission to change '"+app+"'"));
 

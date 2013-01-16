@@ -10,7 +10,7 @@ module.exports = function(backend) {
   };
 
   apps.get = function(name, user, cb) {
-    backend.acl.isAllowed(user, name, 'read', function(err, result) {
+    backend.acl.isAllowed(user, name, 'apps::read', function(err, result) {
       if(err) return err;
       if(!result) return cb(new E.Forbidden("You do not have permission to view '"+name+"'"));
 
@@ -31,6 +31,12 @@ module.exports = function(backend) {
         // TODO get buildpack_provided_description
         // TODO get released_at
       });
+    });
+  };
+
+  apps.procfile = function(name, user, cb) {
+    backend.acl.isAllowed(user, name, 'apps::read', function(err, procfile) {
+      
     });
   };
 
