@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export HEROKU_HOST="http://localhost:3000"
+export HEROKU_STATUS_HOST="http://localhost:3000/status"
+export HEROKU_SSL_VERIFY="disable"
+exec heroku $*

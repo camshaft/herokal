@@ -1,0 +1,24 @@
+{
+  "name": "herokal",
+  "version": "0.0.0",
+  "description": "Local Heroku Environment",
+  "main": "app.js",
+  "scripts": {
+    "test": "NODE_ENV=test BACKEND=herokal-backend-test mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CamShaft/herokal.git"
+  },
+  "keywords": [
+    "heroku",
+    "local",
+    "development"
+  ],
+  "author": "Cameron Bytheway <cameron@nujii.com>",
+  "license": "MIT",
+  "dependencies": {
+    "simple-stack": "~0.1.0",
+    "http-error": "0.0.1"
+  }
+}
